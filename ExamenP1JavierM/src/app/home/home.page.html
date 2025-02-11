@@ -1,0 +1,82 @@
+<p>
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title>Peliculas</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Peliculas</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+    <input #nameInput type="text" placeholder="Nombre Pelicula" />
+    <input #fechaInicioInput type="date" placeholder="Año de lanzamiento "  />
+    <input #usernameInput type="text" placeholder="Nombre Productor" />
+    <input #ProductorInput type="text" placeholder="Casa Productora" />
+    <input #ProtagonistaInput type="text" placeholder="Protagonista"/>
+    <button (click)="addUser(nameInput.value, usernameInput.value); nameInput.value = ''; usernameInput.value = ''" >
+      Agregar Pelicula
+    </button>
+  
+    <table border="1" style="margin-top: 30px; width: 100%; text-align: left">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Nombre de Pelicula</th>
+          <th>Año de lanzamiento</th>
+          <th>Nombre de productor</th>
+          <th>Casa Productora</th>
+          <th>Protagonista</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{ user.id }}</td>
+          <td>
+            <input *ngIf="user.isEditing" [(ngModel)]="user.name" placeholder="Nombre" />
+            <span *ngIf="!user.isEditing">{{ user.name }}</span>
+          </td>
+          <td>
+            <input *ngIf="user.isEditing" [(ngModel)]="user.username" placeholder="Usuario" />
+            <span *ngIf="!user.isEditing">{{ user.username }}</span>
+          </td>
+          <td>
+            <input *ngIf="user.isEditing" [(ngModel)]="user.name" />
+            <span *ngIf="!user.isEditing">{{ user.name }}</span>
+          </td>
+          <td>
+            <input *ngIf="user.isEditing" [(ngModel)]="user.year" />
+            <span *ngIf="!user.isEditing">{{ user.year }}</span>
+          </td>
+          <td>
+            <input *ngIf="user.isEditing" [(ngModel)]="user.producer" />
+            <span *ngIf="!user.isEditing">{{ user.producer }}</span>
+          </td>
+          <td>
+            <input *ngIf="user.isEditing" [(ngModel)]="user.casa" />
+            <span *ngIf="!user.isEditing">{{ user.casa }}</span>
+          </td>
+          <td>
+            <input *ngIf="user.isEditing" [(ngModel)]="user.protagonist" />
+            <span *ngIf="!user.isEditing">{{ user.protagonist }}</span>
+          </td>
+         
+        
+        </tr>
+      </tbody>
+    </table>
+    <h2> 
+      Quote: 
+      Autor: 
+      <p>  
+      </p>
+      <button>Formulario </button>
+    </h2>
+  </ion-content>
+</p>
+
+
+
